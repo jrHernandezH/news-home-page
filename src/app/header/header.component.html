@@ -1,0 +1,31 @@
+<header class="w-full pb-5 items-center sm:flex sm:justify-around py-3">
+
+    <div class="col-span-3 flex items-center justify-between">
+        <h1 class="text-4xl font-extrabold font-playfair text-very-dark-blue lg:text-5xl">W.</h1>
+        <button class="md:hidden text-gray-700" id="menu-button" (click)="seeMenu()">
+            <svg width="30" height="17" xmlns="http://www.w3.org/2000/svg"><g fill="#00001A" fill-rule="evenodd"><path d="M0 0h40v3H0zM0 7h40v3H0zM0 14h40v3H0z"/><path d="M0 0h40v3H0z"/></g></svg>
+        </button>
+    </div>
+
+
+    <nav class="col-span-3 fixed top-0 right-0 h-full w-2/3 bg-white shadow-lg transform transition-transform md:static md:w-auto md:h-auto md:bg-transparent md:shadow-none" [class]="{'hidden': !visibleMenu, 'block': visibleMenu, 'md:flex': true}" id="menu">
+        <div class="w-full flex items-center justify-end p-4 md:hidden">
+          <button aria-label="closed" (click)="seeMenu()">
+            <svg width="32" height="31" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#00001A" fill-rule="evenodd">
+                <path d="m2.919.297 28.284 28.284-2.122 2.122L.797 2.419z"/>
+                <path d="M.797 28.581 29.081.297l2.122 2.122L2.919 30.703z"/>
+              </g>
+            </svg>
+          </button>
+        </div>
+        <ul class="mt-12 flex flex-col md:flex-row md:mt-0">
+            @for (tab of navegation; track tab) {
+            <li class="capitalize text-left px-5 h-12 flex items-center justify-start text-very-dark-blue font-inter cursor-pointer font-medium hover:text-soft-red transition-colors
+            ">
+                <a href="#">{{ tab }}</a>
+            </li>
+            }
+        </ul>
+    </nav>
+</header>
